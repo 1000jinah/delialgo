@@ -1,13 +1,297 @@
+@charset "utf-8";
+/* CSS Document */
+@import "//cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/all.min.css";
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #fdeae4;
+  border: none;
+  margin: 0px;
+  font-family: Apple Sandoll Gothic Neo;
+  /*
+	100 Thin
+	200 UltraLight
+	300 Light
+	400 Medium
+	500 Regular
+	600 SemiBold
+	700 Bold
+	800 ExtraBold
+	900 Heavy
+*/
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* style */
+.Rightleft {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+header {
+  display: flex;
+  margin: 20px 100px;
+  justify-content: space-between;
+}
+
+.Selectuser_btn {
+  margin: 0;
+  padding: 5px;
+  background-color: #fdeae4;
+  border: solid 1px #fd3f01;
+  border-radius: 5px;
+}
+
+.Language_btn {
+  margin: 0;
+  padding: 0;
+  background-color: #fdeae4;
+  border: none;
+}
+
+/*Nav*/
+.Main_mainnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccbcb8;
+  border-bottom: 1px solid #ccbcb8;
+  padding: 10px 100px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.Mainnav {
+  display: flex;
+}
+
+.Mainnav > li {
+  margin-right: 40px;
+}
+
+.Mainnav > li > a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #202225;
+}
+
+.Joinus_btn {
+  border: none;
+  background-color: #fdeae4;
+  color: #127fb0;
+}
+
+.Signin_btn {
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: #127fb0;
+  color: white;
+}
+
+/*Our Portfolio */
+.Subnav {
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0;
+  margin-left: 100px;
+}
+
+.Subnav > li > a {
+  color: #b3a5a1;
+}
+
+.Subnav > li {
+  margin-right: 10px;
+  color: #b3a5a1;
+}
+
+.Ourportfolio_title {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 80px 0 40px 100px;
+  color: #202225;
+}
+
+.Ourportfolio_subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #202225;
+  margin: 0 100px;
+}
+
+.Allthematicetf_btn {
+  border: none;
+  border-radius: 5px;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #fd5b26;
+  color: white;
+  margin: 40px 0 80px 100px;
+}
+
+.Topcategories {
+  margin: 0 0 40px;
+  font-size: 18px;
+  color: #202225;
+  font-weight: 700;
+}
+
+.Fourcategries {
+  display: flex;
+  margin: 0 100px;
+  margin-bottom: 80px;
+  justify-content: space-between;
+}
+
+.Cate {
+  font-size: 10px;
+  font-weight: 400;
+  color: #fd784c;
+  background-color: #fde0d7;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+.Cate_title {
+  font-size: 18px;
+  color: #202225;
+  font-weight: 500;
+  margin: 15px 0;
+}
+
+.Cate_txt {
+  font-size: 14px;
+  font-weight: 400;
+  color: #202225;
+  line-height: 28px;
+}
+
+/* Q&A */
+.QandA {
+  height: 327px;
+  width: auto;
+  background-color: #fd5b26;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+}
+
+.QandA_txt {
+  margin: 80px 0;
+}
+
+.Q_smalltxt {
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+
+.Q_title {
+  font-size: 36px;
+  color: white;
+  font-weight: 700;
+  margin: 10px 0 40px 0;
+}
+
+.Searchbar {
+  width: 500px;
+  height: 20px;
+  margin-right: 10px;
+  border: none;
+  padding: 5px 10px;
+}
+
+.Search_btn {
+  background-color: #fde0d7;
+  color: #fd5b26;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 15px;
+}
+
+.QandA_search > input::placeholder {
+  color: #b3b3b3;
+}
+
+/* What is Thematic Investment */
+
+.Whatis {
+  background-color: #fff9f5;
+  padding: 80px 0;
+}
+
+.Whatis_txt {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.W_title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #202225;
+  margin: 0;
+}
+
+.W_smalltxt {
+  font: 16px;
+  color: #202225;
+  font-weight: 400;
+  line-height: 31px;
+  margin-top: 40px;
+}
+
+.W_circle {
+  border: none;
+  background-color: #fdeae4;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  margin-top: 25px;
+}
+
+/* Themes */
+
+.Themes {
+  margin-top: 120px;
+}
+
+.Disruptive_title {
+  color: #ccbcb8;
+  font-size: 18px;
+  font-weight: 400;
+  border-bottom: 1px solid;
+  margin: 0 200px;
+}
+
+.Theme_contents {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 200px 0 200px;
+}
+
+.Theme_title {
+  font-size: 18px;
+  color: #202225;
+  font-weight: 700;
+}
+
+.Theme_txt {
+  font-size: 14px;
+  color: #202225;
+  font-weight: 400;
+  line-height: 28px;
+}
+.Mui-selected {
+  color: #fd3f01 !important ;
 }
