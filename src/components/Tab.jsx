@@ -2,14 +2,14 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { Box, Button, Breadcrumbs, Typography, Tabs, Tab } from "@mui/material";
 import { Link } from "react-router-dom";
-import InvestGoal from "./InvestGoal";
-import QandA from "./QandA";
-import WhatInvestment from "./WhatInvestment";
-import TypeTitleBox from "./TypeTitleBox";
-import TypeCtsBox from "./TypeCtsBox";
+import InvestGoal from "components/InvestGoal";
+import QandA from "components/QandA";
+import WhatInvestment from "components/WhatInvestment";
+import TypeTitleBox from "components/TypeTitleBox";
+import TypeCtsBox from "components/TypeCtsBox";
 
 import StorageIcon from "@mui/icons-material/Storage";
-
+import DeleteIcon from "@mui/icons-material/Delete";
 function handleBreadCrumbsClick(event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
@@ -235,14 +235,17 @@ export default function MainTab() {
             }}
           >
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Big data"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Connectivity"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Digital Content"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
@@ -255,14 +258,17 @@ export default function MainTab() {
             }}
           >
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Fintech"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
+            typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Mobility"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
+            typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Robotics"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
@@ -277,10 +283,12 @@ export default function MainTab() {
             }}
           >
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Health & Wellness"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="New Consumer"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
@@ -295,10 +303,12 @@ export default function MainTab() {
             }}
           >
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Infrastructure Development"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Climate Change"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
@@ -313,10 +323,12 @@ export default function MainTab() {
             }}
           >
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="ESG"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="TCFD"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />

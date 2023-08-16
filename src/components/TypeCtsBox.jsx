@@ -1,4 +1,4 @@
-import { Box, Icon, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import React from "react";
 
 const TypeCtsBox = ({ typeCtsIcon, typeCtsTitle, typeCtsDescript }) => {
@@ -20,27 +20,28 @@ const TypeCtsBox = ({ typeCtsIcon, typeCtsTitle, typeCtsDescript }) => {
         },
       }}
     >
-      <Box>
-        <Icon src={typeCtsIcon} className="type-icon" />
-      </Box>
-
-      <Box>
-        <Typography
-          className="type-title"
-          sx={{ fontSize: 18, color: "#202225", fontWeight: 700 }}
-        >
-          {typeCtsTitle}
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: 14,
-            color: "#202225",
-            fontWeight: 400,
-            lineHeight: "28px",
-          }}
-        >
-          {typeCtsDescript}
-        </Typography>
+      <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+        <IconButton className="type-icon" sx={{ py: "2px" }}>
+          {typeCtsIcon}
+        </IconButton>
+        <Box>
+          <Typography
+            className="type-title"
+            sx={{ fontSize: 18, color: "#202225", fontWeight: 700 }}
+          >
+            {typeCtsTitle}
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: 14,
+              color: "#202225",
+              fontWeight: 400,
+              lineHeight: "28px",
+            }}
+          >
+            {typeCtsDescript}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

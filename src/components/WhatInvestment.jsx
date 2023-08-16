@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
+import DownArrowIcon from '@mui/icons-material/ArrowDownwardOutlined';
+
 const WhatInvestment = () => {
   return (
     <Box>
@@ -37,7 +39,7 @@ const WhatInvestment = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Typography>
-          <Box
+          <IconButton
             sx={{
               borderRadius: "50%",
               border: "none",
@@ -45,8 +47,13 @@ const WhatInvestment = () => {
               width: "50px",
               height: "50px",
               mt: "25px",
+              ":hover":{
+                backgroundColor: "#FDEAE4",
+              }
             }}
-          ></Box>
+          >
+            <DownArrowIcon/>
+          </IconButton>
         </Box>
       </Box>
     </Box>
