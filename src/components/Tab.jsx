@@ -1,6 +1,14 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Box, Button, Breadcrumbs, Typography, Tabs, Tab } from "@mui/material";
+import {
+  Box,
+  Button,
+  Breadcrumbs,
+  Typography,
+  Tabs,
+  Tab,
+  IconButton,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import InvestGoal from "components/InvestGoal";
 import QandA from "components/QandA";
@@ -9,7 +17,9 @@ import TypeTitleBox from "components/TypeTitleBox";
 import TypeCtsBox from "components/TypeCtsBox";
 
 import StorageIcon from "@mui/icons-material/Storage";
-import DeleteIcon from "@mui/icons-material/Delete";
+
+import ShieldIcon from "@mui/icons-material/ShieldOutlined";
+import EastIcon from "@mui/icons-material/EastOutlined";
 function handleBreadCrumbsClick(event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
@@ -252,8 +262,84 @@ export default function MainTab() {
           </Box>
           <Box
             sx={{
+              border: "1px solid #ccbcb8",
               display: "flex",
-
+              justifyContent: "space-between",
+              m: "0 100px",
+              mt: "20px",
+              p: 1,
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <IconButton>
+                <ShieldIcon sx={{ color: "#FD5B26" }} />
+              </IconButton>
+              <Typography>Cybersecurity</Typography>
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+              </Typography>
+              <IconButton>
+                <EastIcon sx={{ color: "#ccbcb8" }} />
+              </IconButton>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              border: "1px solid #ccbcb8",
+              display: "flex",
+              justifyContent: "space-between",
+              m: "0 100px",
+              mt: "20px",
+              p: 1,
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <IconButton>
+                <ShieldIcon sx={{ color: "#FD5B26" }} />
+              </IconButton>
+              <Typography>Cybersecurity</Typography>
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+              </Typography>
+              <IconButton>
+                <EastIcon sx={{ color: "#ccbcb8" }} />
+              </IconButton>
+            </Box>
+          </Box>          <Box
+            sx={{
+              border: "1px solid #ccbcb8",
+              display: "flex",
+              justifyContent: "space-between",
+              m: "0 100px",
+              mt: "20px",
+              p: 1,
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <IconButton>
+                <ShieldIcon sx={{ color: "#FD5B26" }} />
+              </IconButton>
+              <Typography>Cybersecurity</Typography>
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+              </Typography>
+              <IconButton>
+                <EastIcon sx={{ color: "#ccbcb8" }} />
+              </IconButton>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
               m: "0 100px",
             }}
           >
@@ -263,12 +349,12 @@ export default function MainTab() {
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
-            typeCtsIcon={<StorageIcon />}
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Mobility"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
-            typeCtsIcon={<StorageIcon />}
+              typeCtsIcon={<StorageIcon />}
               typeCtsTitle="Robotics"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
