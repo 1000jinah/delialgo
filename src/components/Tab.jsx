@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import {
   Box,
@@ -17,9 +17,8 @@ import TypeTitleBox from "components/TypeTitleBox";
 import TypeCtsBox from "components/TypeCtsBox";
 
 import StorageIcon from "@mui/icons-material/Storage";
+import TypeCtsList from "./TypeCtsList";
 
-import ShieldIcon from "@mui/icons-material/ShieldOutlined";
-import EastIcon from "@mui/icons-material/EastOutlined";
 function handleBreadCrumbsClick(event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
@@ -59,11 +58,18 @@ function a11yProps(index) {
 
 export default function MainTab() {
   const [value, setValue] = React.useState(0);
-
+  const [expandedIndex, setExpandedIndex] = useState(-1); // Initialize with -1
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const handleExpandClick = (index) => {
+    if (index === expandedIndex) {
+      setExpandedIndex(-1); // Collapse if clicking on an already expanded box
+    } else {
+      setExpandedIndex(index);
+    }
+  };
   return (
     <Box sx={{ width: "100%" }}>
       <Box
@@ -240,184 +246,503 @@ export default function MainTab() {
           <Box
             sx={{
               display: "flex",
+              flexDirection: "column",
+              m: "0 100px",
+            }}
+          >
+            <Box sx={{ display: "flex" }}>
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(1)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 1 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 1 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 1
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsBoxMarginRight={3}
+                typeCtsTitle="Big data"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(2)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 2 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 2 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 2
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsBoxMarginRight={3}
+                typeCtsTitle="Connectivity"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(3)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 3 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 3 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 3
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsTitle="Digital Content"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+            </Box>
+            {expandedIndex === 1 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
+            {expandedIndex === 2 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
+            {expandedIndex === 3 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
+          </Box>
 
-              m: "0 100px",
-            }}
-          >
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Big data"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Connectivity"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Digital Content"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-          </Box>
-          <Box
-            sx={{
-              border: "1px solid #ccbcb8",
-              display: "flex",
-              justifyContent: "space-between",
-              m: "0 100px",
-              mt: "20px",
-              p: 1,
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <IconButton>
-                <ShieldIcon sx={{ color: "#FD5B26" }} />
-              </IconButton>
-              <Typography>Cybersecurity</Typography>
-            </Box>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-              </Typography>
-              <IconButton>
-                <EastIcon sx={{ color: "#ccbcb8" }} />
-              </IconButton>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              border: "1px solid #ccbcb8",
-              display: "flex",
-              justifyContent: "space-between",
-              m: "0 100px",
-              mt: "20px",
-              p: 1,
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <IconButton>
-                <ShieldIcon sx={{ color: "#FD5B26" }} />
-              </IconButton>
-              <Typography>Cybersecurity</Typography>
-            </Box>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-              </Typography>
-              <IconButton>
-                <EastIcon sx={{ color: "#ccbcb8" }} />
-              </IconButton>
-            </Box>
-          </Box>          <Box
-            sx={{
-              border: "1px solid #ccbcb8",
-              display: "flex",
-              justifyContent: "space-between",
-              m: "0 100px",
-              mt: "20px",
-              p: 1,
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <IconButton>
-                <ShieldIcon sx={{ color: "#FD5B26" }} />
-              </IconButton>
-              <Typography>Cybersecurity</Typography>
-            </Box>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-              </Typography>
-              <IconButton>
-                <EastIcon sx={{ color: "#ccbcb8" }} />
-              </IconButton>
-            </Box>
-          </Box>
           <Box
             sx={{
               display: "flex",
+              flexDirection: "column",
               m: "0 100px",
             }}
           >
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Fintech"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Mobility"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Robotics"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
+            <Box sx={{ display: "flex" }}>
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(4)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 4 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 4 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 4
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsBoxMarginRight={3}
+                typeCtsTitle="Fintech"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(5)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 5 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 5 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 5
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsBoxMarginRight={3}
+                typeCtsTitle="Mobility"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(6)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 6 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 6 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 6
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsTitle="Robotics"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+            </Box>
+            {expandedIndex === 4 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
+
+            {expandedIndex === 5 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
+            {expandedIndex === 6 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
           </Box>
           {/* People & Demographics */}
           <TypeTitleBox typetitle="People & Demographics" />
           <Box
             sx={{
               display: "flex",
-
+              flexDirection: "column",
               m: "0 100px",
             }}
           >
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Health & Wellness"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="New Consumer"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
+            <Box sx={{ display: "flex" }}>
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(7)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 7 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 7 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 7
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsBoxMarginRight={3}
+                typeCtsTitle="Health & Wellness"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(8)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 8 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 8 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 8
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsTitle="New Consumer"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+            </Box>
+            {expandedIndex === 7 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
+
+            {expandedIndex === 8 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
           </Box>
           {/* Physical Envrionment */}
           <TypeTitleBox typetitle="Physical Envrionment" />
           <Box
             sx={{
               display: "flex",
-
+              flexDirection: "column",
               m: "0 100px",
             }}
           >
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Infrastructure Development"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsTitle="Climate Change"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
+            <Box sx={{ display: "flex" }}>
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(9)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 9 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 9 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 9
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsBoxMarginRight={3}
+                typeCtsTitle="Infrastructure Development"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(10)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 10 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 10 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 10
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsTitle="Climate Change"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+            </Box>
+            {expandedIndex === 9 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
+
+            {expandedIndex === 10 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
           </Box>
           {/* Sustainability */}
           <TypeTitleBox typetitle="Sustainability" />
           <Box
             sx={{
               display: "flex",
-
+              flexDirection: "column",
               m: "0 100px",
             }}
           >
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
+            <Box sx={{ display: "flex" }}>
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxClick={() => handleExpandClick(11)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 11 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 11 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 11
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsBoxMarginRight={3}
               typeCtsTitle="ESG"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
             <TypeCtsBox
               typeCtsIcon={<StorageIcon />}
+              typeCtsBoxClick={() => handleExpandClick(12)}
+              typeCtsBackgroundColor={
+                expandedIndex === 12 ? "#fff" : "transparent"
+              }
+              typeCtsColor={expandedIndex === 12 ? "#FD5B26" : "#202225"}
+              typeCtsBoxShadow={
+                expandedIndex === 12
+                  ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                  : "none"
+              }
               typeCtsTitle="TCFD"
               typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
             />
+          </Box>
+          {expandedIndex === 11 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
+
+            {expandedIndex === 12 && (
+              <>
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+                <TypeCtsList
+                  typeCtsListTitle="Cybersecurity"
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
+              </>
+            )}
           </Box>
         </Box>
       </CustomTabPanel>
