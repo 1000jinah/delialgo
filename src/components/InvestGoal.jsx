@@ -116,6 +116,7 @@ const InvestGoal = () => {
               fontSize: 10,
               fontWeight: 400,
               color: "#fd784c",
+              backgroundColor: "#FDE0D7",
               padding: "3px 5px",
               borderRadius: "3px",
             }}

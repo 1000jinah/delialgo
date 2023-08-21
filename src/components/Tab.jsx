@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import {
-  Box,
-  Button,
-  Breadcrumbs,
-  Typography,
-  Tabs,
-  Tab,
-  IconButton,
-} from "@mui/material";
+import { Box, Button, Breadcrumbs, Typography, Tabs, Tab } from "@mui/material";
 import { Link } from "react-router-dom";
 import InvestGoal from "components/InvestGoal";
 import QandA from "components/QandA";
@@ -63,13 +55,11 @@ export default function MainTab() {
     setValue(newValue);
   };
 
-  const handleExpandClick = (index) => {
-    if (index === expandedIndex) {
-      setExpandedIndex(-1); // Collapse if clicking on an already expanded box
-    } else {
-      setExpandedIndex(index);
-    }
+  const handleExpandMouseEnter = (index) => {
+    setExpandedIndex(index);
   };
+
+
   return (
     <Box sx={{ width: "100%" }}>
       <Box
@@ -154,7 +144,10 @@ export default function MainTab() {
                 fontSize: 13,
                 p: 0,
                 backgroundColor: "#FDEAE4",
-                color: "#127FB0",
+                ":hover": {
+                  backgroundColor: "transparent",
+                },
+                color: "#360c5e",
               }}
             >
               Join us
@@ -165,9 +158,9 @@ export default function MainTab() {
                 color: "#fdeae4",
                 fontSize: 13,
                 p: 0,
-                backgroundColor: "#127FB0",
+                backgroundColor: "#360c5e",
                 ":hover": {
-                  backgroundColor: "#127FB0",
+                  backgroundColor: "#360c5e",
                 },
               }}
             >
@@ -229,6 +222,9 @@ export default function MainTab() {
                 color: "#fff",
                 lineHeight: "normal",
                 m: "35px 0 35px 0px",
+                ":hover": {
+                  backgroundColor: "#FD5B26",
+                },
               }}
             >
               All Thematic ETF
@@ -250,10 +246,11 @@ export default function MainTab() {
               m: "0 100px",
             }}
           >
+            {/* typeCtsBoxHover */}
             <Box sx={{ display: "flex" }}>
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(1)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(1)}
                 typeCtsBackgroundColor={
                   expandedIndex === 1 ? "#fff" : "transparent"
                 }
@@ -269,7 +266,7 @@ export default function MainTab() {
               />
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(2)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(2)}
                 typeCtsBackgroundColor={
                   expandedIndex === 2 ? "#fff" : "transparent"
                 }
@@ -285,7 +282,7 @@ export default function MainTab() {
               />
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(3)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(3)}
                 typeCtsBackgroundColor={
                   expandedIndex === 3 ? "#fff" : "transparent"
                 }
@@ -347,17 +344,17 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -373,7 +370,7 @@ export default function MainTab() {
             <Box sx={{ display: "flex" }}>
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(4)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(4)}
                 typeCtsBackgroundColor={
                   expandedIndex === 4 ? "#fff" : "transparent"
                 }
@@ -389,7 +386,7 @@ export default function MainTab() {
               />
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(5)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(5)}
                 typeCtsBackgroundColor={
                   expandedIndex === 5 ? "#fff" : "transparent"
                 }
@@ -405,7 +402,7 @@ export default function MainTab() {
               />
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(6)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(6)}
                 typeCtsBackgroundColor={
                   expandedIndex === 6 ? "#fff" : "transparent"
                 }
@@ -424,17 +421,17 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+           eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+           eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+           eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -444,22 +441,22 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -468,17 +465,17 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -495,7 +492,7 @@ export default function MainTab() {
             <Box sx={{ display: "flex" }}>
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(7)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(7)}
                 typeCtsBackgroundColor={
                   expandedIndex === 7 ? "#fff" : "transparent"
                 }
@@ -511,7 +508,7 @@ export default function MainTab() {
               />
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(8)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(8)}
                 typeCtsBackgroundColor={
                   expandedIndex === 8 ? "#fff" : "transparent"
                 }
@@ -530,17 +527,17 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+             eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+             eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+             eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -550,22 +547,22 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -582,7 +579,7 @@ export default function MainTab() {
             <Box sx={{ display: "flex" }}>
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(9)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(9)}
                 typeCtsBackgroundColor={
                   expandedIndex === 9 ? "#fff" : "transparent"
                 }
@@ -598,7 +595,7 @@ export default function MainTab() {
               />
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(10)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(10)}
                 typeCtsBackgroundColor={
                   expandedIndex === 10 ? "#fff" : "transparent"
                 }
@@ -617,17 +614,17 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -637,22 +634,22 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -669,7 +666,7 @@ export default function MainTab() {
             <Box sx={{ display: "flex" }}>
               <TypeCtsBox
                 typeCtsIcon={<StorageIcon />}
-                typeCtsBoxClick={() => handleExpandClick(11)}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(11)}
                 typeCtsBackgroundColor={
                   expandedIndex === 11 ? "#fff" : "transparent"
                 }
@@ -680,41 +677,40 @@ export default function MainTab() {
                     : "none"
                 }
                 typeCtsBoxMarginRight={3}
-              typeCtsTitle="ESG"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-            <TypeCtsBox
-              typeCtsIcon={<StorageIcon />}
-              typeCtsBoxClick={() => handleExpandClick(12)}
-              typeCtsBackgroundColor={
-                expandedIndex === 12 ? "#fff" : "transparent"
-              }
-              typeCtsColor={expandedIndex === 12 ? "#FD5B26" : "#202225"}
-              typeCtsBoxShadow={
-                expandedIndex === 12
-                  ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
-                  : "none"
-              }
-              typeCtsTitle="TCFD"
-              typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
-            />
-          </Box>
-          {expandedIndex === 11 && (
+                typeCtsTitle="ESG"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+              <TypeCtsBox
+                typeCtsIcon={<StorageIcon />}
+                typeCtsBoxEnter={() => handleExpandMouseEnter(12)}
+                typeCtsBackgroundColor={
+                  expandedIndex === 12 ? "#fff" : "transparent"
+                }
+                typeCtsColor={expandedIndex === 12 ? "#FD5B26" : "#202225"}
+                typeCtsBoxShadow={
+                  expandedIndex === 12
+                    ? "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
+                    : "none"
+                }
+                typeCtsTitle="TCFD"
+                typeCtsDescript="This theme focuses on companies that process, store, and analyze data by providing data mining. trans-formation, and visualization, and predictive analytics tools."
+              />
+            </Box>
+            {expandedIndex === 11 && (
               <>
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
-                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                  typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}
@@ -724,22 +720,22 @@ export default function MainTab() {
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <TypeCtsList
                   typeCtsListTitle="Cybersecurity"
                   typeCtsListDescript=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
               </>
             )}

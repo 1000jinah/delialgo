@@ -5,34 +5,25 @@ const TypeCtsBox = ({
   typeCtsIcon,
   typeCtsTitle,
   typeCtsDescript,
-  typeCtsBoxClick,
+  typeCtsBoxHover,
   typeCtsBackgroundColor,
   typeCtsColor,
   typeCtsBoxShadow,
-  typeCtsBoxMarginRight
+  typeCtsBoxEnter,
+  typeCtsBoxMarginRight,
 }) => {
   return (
     <Box
       sx={{
         mt: "40px",
         mr: typeCtsBoxMarginRight,
-
         p: 3,
         backgroundColor: typeCtsBackgroundColor,
         boxShadow: typeCtsBoxShadow,
         width: "33%",
-        ":hover": {
-          backgroundColor: "#fff",
-          boxShadow:
-            "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
-
-          ".type-title": {
-            color: "#FD5B26",
-          },
-          ".type-icon": { color: "#FD5B26" },
-        },
+        ":hover": typeCtsBoxHover,
       }}
-      onClick={typeCtsBoxClick}
+      onMouseEnter={typeCtsBoxEnter}
     >
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <IconButton
