@@ -10,6 +10,7 @@ const TypeCtsBox = ({
   typeCtsColor,
   typeCtsBoxShadow,
   typeCtsBoxEnter,
+  typeCtsBoxLeave,
   typeCtsBoxMarginRight,
 }) => {
   return (
@@ -24,6 +25,7 @@ const TypeCtsBox = ({
         ":hover": typeCtsBoxHover,
       }}
       onMouseEnter={typeCtsBoxEnter}
+      onMouseLeave={typeCtsBoxLeave}
     >
       <Box sx={{ display: "flex", alignItems: "flex-start" }}>
         <IconButton

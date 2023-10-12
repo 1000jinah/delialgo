@@ -293,13 +293,25 @@ a {
   line-height: 28px;
 }
 
-.Mui-selected {
-  color: #fd3f01 !important ;
-}
+/* .MuiTab-root.Mui-selected {
+  color: #fd3f01  ;
+} */
 
 .TopSelect > .Mui-focused,
 .MuiOutlinedInput-notchedOutline {
   /* border-color: #fd3f01 !important ;
   border-width: 1px !important ; */
   border: none !important;
+}
+
+.highcharts-halo {
+  display: none;
+}
+
+.highcharts-container {
+  /* height:!important; */
+  min-height: 300px !important;
+}
+.highcharts-point {
+  width: 3px;
 }

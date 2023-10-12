@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.856" height="13.856" viewBox="0 0 13.856 13.856">
+    <defs>
+        <linearGradient id="d0h0wkvelb" x1=".024" y1=".974" x2=".072" y2=".974" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#629ad3"/>
+            <stop offset="1" stop-color="#79aed4"/>
+        </linearGradient>
+        <linearGradient id="wvco3i23sd" x1=".026" y1=".974" x2=".073" y2=".974" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#eb595a"/>
+            <stop offset="1" stop-color="#f18875"/>
+        </linearGradient>
+        <clipPath id="jxroacs58a">
+            <path data-name="패스 15030" d="M2.089 5.4.729 6.759A2.5 2.5 0 0 0 0 8.5v.053a2.5 2.5 0 0 0 .729 1.74l1.36 1.36a.692.692 0 0 0 .979 0L5.7 9.015a.693.693 0 0 0 0-.979L3.068 5.4a.694.694 0 0 0-.979 0m8.7 0L8.153 8.035a.693.693 0 0 0 0 .979l2.636 2.636a.693.693 0 0 0 .98 0l1.36-1.36a2.494 2.494 0 0 0 .728-1.729v-.073a2.5 2.5 0 0 0-.728-1.729L11.769 5.4a.693.693 0 0 0-.98 0" transform="translate(0 -5.196)" style="fill:none"/>
+        </clipPath>
+        <clipPath id="hwbq5y3huc">
+            <path data-name="패스 15031" d="M8.035 8.153 5.4 10.789a.692.692 0 0 0 0 .979l1.36 1.36a2.5 2.5 0 0 0 1.74.729h.053a2.5 2.5 0 0 0 1.74-.729l1.36-1.36a.693.693 0 0 0 0-.979L9.015 8.153a.692.692 0 0 0-.979 0M8.488 0a2.494 2.494 0 0 0-1.729.729L5.4 2.089a.693.693 0 0 0 0 .98L8.035 5.7a.693.693 0 0 0 .979 0l2.636-2.636a.694.694 0 0 0 0-.98L10.292.729A2.5 2.5 0 0 0 8.563 0z" transform="translate(-5.196 -.001)" style="fill:none"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 29650">
+        <g data-name="그룹 29649" style="clip-path:url(#jxroacs58a)" transform="translate(0 3.599)">
+            <path data-name="사각형 11887" transform="rotate(-45 2.378 5.741)" style="fill:url(#d0h0wkvelb)" d="M0 0h14.554v14.554H0z"/>
+        </g>
+    </g>
+    <g data-name="그룹 29652">
+        <g data-name="그룹 29651" style="clip-path:url(#hwbq5y3huc)" transform="translate(3.6)">
+            <path data-name="사각형 11888" transform="rotate(-45 4.865 11.909)" style="fill:url(#wvco3i23sd)" d="M0 0h14.602v14.602H0z"/>
+        </g>
+    </g>
+</svg>

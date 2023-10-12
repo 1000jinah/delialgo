@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import React, { useState } from "react";
 import LogoIcon from "assets/logo.png";
-import MainTab from "components/Main/Tab/MainTab";
 import BasicSelect from "components/Main/Box/TopSelectBox";
+import OrdinaryTab from "components/Ordinary/Tab/OrdinaryTab";
 
-const Main = () => {
+const Ordinary = () => {
   const [selectedSelectIndex, setSelectedSelectIndex] = useState(null);
 
   const handleTopSelectClick = (index) => {
@@ -55,9 +55,9 @@ const Main = () => {
           />
         </Box>
       </Box>
-      <MainTab TabValue={0} />
+      <OrdinaryTab />
     </Box>
   );
 };
 
-export default Main;
+export default Ordinary;

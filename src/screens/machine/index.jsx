@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import React, { useState } from "react";
 import LogoIcon from "assets/logo.png";
-import MainTab from "components/Main/Tab/MainTab";
 import BasicSelect from "components/Main/Box/TopSelectBox";
+import MachineTab from "components/Machine/Tab/MachineTab";
 
-const Main = () => {
+const Mahcine = () => {
   const [selectedSelectIndex, setSelectedSelectIndex] = useState(null);
 
   const handleTopSelectClick = (index) => {
@@ -13,7 +13,7 @@ const Main = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#FDEAE4",
+        backgroundColor: "#fdeae4",
         fontFamily: "Apple Sandoll Gothic Neo",
       }}
     >
@@ -55,9 +55,9 @@ const Main = () => {
           />
         </Box>
       </Box>
-      <MainTab TabValue={0} />
+      <MachineTab />
     </Box>
   );
 };
 
-export default Main;
+export default Mahcine;

@@ -1,0 +1,34 @@
+<svg id="icon_ticker" xmlns="http://www.w3.org/2000/svg" width="13.858" height="13.856" viewBox="0 0 13.858 13.856">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="사각형_11889" data-name="사각형 11889" style="fill:none" d="M0 0h13.858v13.856H0z"/>
+        </clipPath>
+        <clipPath id="clip-path-2">
+            <path id="패스_15033" data-name="패스 15033" d="M14.028 12.639a4.353 4.353 0 0 1-1.277 4 3.565 3.565 0 0 0 1.657.4 3.611 3.611 0 0 0 1.783-6.754 4.483 4.483 0 0 1-2.163 2.35" transform="translate(-12.751 -10.289)" style="fill:none"/>
+        </clipPath>
+        <clipPath id="clip-path-3">
+            <path id="패스_15034" data-name="패스 15034" d="M1.5 9.934a3.609 3.609 0 0 0 6.025 2.687 3.675 3.675 0 0 0 1.169-3.139 4.485 4.485 0 0 1-5.361-2.687A3.614 3.614 0 0 0 1.5 9.934m2.41-4.82A3.615 3.615 0 1 0 7.526 1.5a3.615 3.615 0 0 0-3.615 3.614" transform="translate(-1.501 -1.499)" style="fill:none"/>
+        </clipPath>
+        <linearGradient id="linear-gradient" x1="-.713" y1="1.01" x2="-.642" y2="1.01" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#629ad3"/>
+            <stop offset="1" stop-color="#79aed4"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1=".134" y1=".93" x2=".172" y2=".93" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#eb595a"/>
+            <stop offset="1" stop-color="#f18875"/>
+        </linearGradient>
+        <style>
+            
+        </style>
+    </defs>
+    <g id="그룹_29657" data-name="그룹 29657" transform="translate(7.682 6.199)">
+        <g id="그룹_29656" data-name="그룹 29656" style="clip-path:url(#clip-path-2)">
+            <path id="사각형_11890" data-name="사각형 11890" transform="rotate(-44.995 2.388 5.767)" style="fill:url(#linear-gradient)" d="M0 0h8.505v8.505H0z"/>
+        </g>
+    </g>
+    <g id="그룹_29659" data-name="그룹 29659" transform="translate(.904 .903)">
+        <g id="그룹_29658" data-name="그룹 29658" style="clip-path:url(#clip-path-3)">
+            <path id="사각형_11891" data-name="사각형 11891" transform="rotate(-45 4.403 10.633)" style="fill:url(#linear-gradient-2)" d="M0 0h15.625v15.625H0z"/>
+        </g>
+    </g>
+</svg>
