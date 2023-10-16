@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MachineCtsBox = () => {
   const detailData = [
@@ -17,17 +18,17 @@ const MachineCtsBox = () => {
           <Typography sx={{ fontSize: 26, color: "#202225", mr: 2 }}>
             iShares iBonds Dec 2024 Term Corporate ETF (IBDP)
           </Typography>
-          <Typography
-            sx={{
+          <Link
+            to="/compare"
+            style={{
               color: "#127fb0",
-              py: 0.5,
-              px: 1.2,
+              padding: "0.25rem 0.6rem",
               borderRadius: 20,
               border: "1px solid #127fb0",
             }}
           >
             + Compare
-          </Typography>
+          </Link>
         </Box>
         <Typography sx={{ color: "#b3a5a1", fontSize: 12 }}>
           NYSEArca - NYSEArca Delayed Price. Currency in USD

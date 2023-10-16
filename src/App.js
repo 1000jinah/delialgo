@@ -2,7 +2,9 @@ import { CssBaseline } from "@mui/material";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Category from "screens/category";
 import Compare from "screens/compare";
-import Insights from "screens/insights";
+import Weekly from "screens/insights/weekly";
+import Monthly from "screens/insights/monthly";
+
 import Machine from "screens/machine";
 import Main from "screens/main";
 import Ordinary from "screens/ordinary";
@@ -21,7 +23,8 @@ function App() {
           <Route path="/compare" element={<Compare />} />
           <Route path="/machine" element={<Machine/>} />
           <Route path="/overview" element={<Overview/>} />
-          <Route path="/insights" element={<Insights/>} />
+          <Route path="/insights/weekly" element={<Weekly/>} />
+          <Route path="/insights/monthly" element={<Monthly/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import LogoIcon from "assets/logo.png";
 import BasicSelect from "components/Main/Box/TopSelectBox";
 import CategoryCts from "components/Category/Box/CategoryCts";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   const [selectedSelectIndex, setSelectedSelectIndex] = useState(null);
@@ -26,7 +27,9 @@ const Category = () => {
           py: "20px",
         }}
       >
-        <img alt="logo" src={LogoIcon} width="auto" height="30px" />
+        <Link to="/">
+          <img alt="logo" src={LogoIcon} width="auto" height="30px" />
+        </Link>
         <Box sx={{ display: "flex" }}>
           <BasicSelect
             topSelectOption_fir="Indivdual"

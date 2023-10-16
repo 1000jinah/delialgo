@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import LogoIcon from "assets/logo.png";
 import BasicSelect from "components/Main/Box/TopSelectBox";
 import OrdinaryTab from "components/Ordinary/Tab/OrdinaryTab";
+import { Link } from "react-router-dom";
 
 const Ordinary = () => {
   const [selectedSelectIndex, setSelectedSelectIndex] = useState(null);
@@ -13,10 +14,11 @@ const Ordinary = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#FDEAE4",
+        backgroundColor: "#fff9f5",
         fontFamily: "Apple Sandoll Gothic Neo",
       }}
     >
+      {/* #fff9f5 */}
       {/* Top Header */}
       <Box
         sx={{
@@ -24,9 +26,12 @@ const Ordinary = () => {
           justifyContent: "space-between",
           px: "100px",
           py: "20px",
+          backgroundColor: "#FDEAE4",
         }}
       >
-        <img alt="logo" src={LogoIcon} width="auto" height="30px" />
+        <Link to="/">
+          <img alt="logo" src={LogoIcon} width="auto" height="30px" />
+        </Link>
         <Box sx={{ display: "flex" }}>
           <BasicSelect
             topSelectOption_fir="Indivdual"

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import ShieldIcon from "@mui/icons-material/ShieldOutlined";
 import EastIcon from "@mui/icons-material/EastOutlined";
+import { Link } from "react-router-dom";
 const TypeCtsList = ({
   typeCtsListTitle,
   typeCtsListDescript,
@@ -23,6 +24,7 @@ const TypeCtsList = ({
   const nextIconColor = isHovered ? "#FD5B26" : "#ccbcb8";
   return (
    
+      <Link to="/ordinary">
       <Box
       sx={{
         border: "1px solid #ccbcb8",
@@ -44,13 +46,13 @@ const TypeCtsList = ({
           </Typography>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography>{typeCtsListDescript}</Typography>
+          <Typography sx={{color:"#202225"}}>{typeCtsListDescript}</Typography>
           <IconButton>
             <EastIcon sx={{ color: nextIconColor }} />
             {/* "#ccbcb8" */}
           </IconButton>
         </Box>
-      </Box>
+      </Box></Link>
    
   );
 };

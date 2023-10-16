@@ -2,9 +2,11 @@ import { Box } from "@mui/material";
 import React, { useState } from "react";
 import LogoIcon from "assets/logo.png";
 import BasicSelect from "components/Main/Box/TopSelectBox";
-import InsightTab from "components/Insight/Tab/InsightTab";
+import InsightTab from "components/Insight/Tab/MonthlyTab";
+import { Link } from "react-router-dom";
+import WeeklyTab from "components/Insight/Tab/WeeklyTab";
 
-const Insights = () => {
+const Weekly = () => {
   const [selectedSelectIndex, setSelectedSelectIndex] = useState(null);
 
   const handleTopSelectClick = (index) => {
@@ -26,7 +28,9 @@ const Insights = () => {
           py: "20px",
         }}
       >
-        <img alt="logo" src={LogoIcon} width="auto" height="30px" />
+        <Link to="/">
+          <img alt="logo" src={LogoIcon} width="auto" height="30px" />
+        </Link>
         <Box sx={{ display: "flex" }}>
           <BasicSelect
             topSelectOption_fir="Indivdual"
@@ -55,9 +59,9 @@ const Insights = () => {
           />
         </Box>
       </Box>
-      <InsightTab TabValue={1} />
+      <WeeklyTab TabValue={1} />
     </Box>
   );
 };
 
-export default Insights;
+export default Weekly;

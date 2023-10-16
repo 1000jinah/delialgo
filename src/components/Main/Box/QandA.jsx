@@ -68,7 +68,9 @@ const QandA = () => {
               placeholder="Do not use keywords, but full fledged questions."
             />
             <Button
+            href="/category"
               sx={{
+                textTransform:"capitalize",
                 backgroundColor: "#FDE0D7",
                 color: "#FD5B26",
                 border: "none",
