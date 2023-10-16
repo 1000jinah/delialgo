@@ -251,7 +251,7 @@ export default function MonthlyTab() {
               >
                 <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -262,37 +262,37 @@ export default function MonthlyTab() {
                     Our Portfolio
                   </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225", marginBottom: 25 }}
                   >
                     View All Portfolio
                   </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225", marginBottom: 25 }}
                   >
                     AI Portfolio
                   </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225", marginBottom: 25 }}
                   >
                     Theme Portfolio
                   </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225", marginBottom: 25 }}
                   >
                     Fundamental Portfolio
-                  </Link>{" "}
+                  </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225", marginBottom: 25 }}
                   >
                     Variable Insurance Portfolio
                   </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225", marginBottom: 25 }}
                   >
                     Compare Portfolio
@@ -300,7 +300,7 @@ export default function MonthlyTab() {
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -332,7 +332,7 @@ export default function MonthlyTab() {
               >
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -343,7 +343,7 @@ export default function MonthlyTab() {
                     Insights
                   </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225", marginBottom: 25 }}
                   >
                     All Insight
@@ -361,11 +361,11 @@ export default function MonthlyTab() {
                     Monthly Commentary
                   </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225", marginBottom: 25 }}
                   >
                     Market Risk Monitor
-                  </Link>{" "}
+                  </Link>
                 </Box>
               </Box>
             )}
@@ -381,7 +381,7 @@ export default function MonthlyTab() {
               >
                 <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -393,7 +393,7 @@ export default function MonthlyTab() {
                   </Link>
 
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontSize: 14,
                       color: "#202225",
@@ -404,7 +404,7 @@ export default function MonthlyTab() {
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -416,7 +416,7 @@ export default function MonthlyTab() {
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -440,7 +440,7 @@ export default function MonthlyTab() {
               >
                 <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -451,13 +451,13 @@ export default function MonthlyTab() {
                     Content Series
                   </Link>
                   <Link
-                    to="/"
+                    to=""
                     style={{ fontSize: 14, color: "#202225" }}
                   ></Link>
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -481,7 +481,7 @@ export default function MonthlyTab() {
               >
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontWeight: "bold",
                       fontSize: 18,
@@ -493,7 +493,7 @@ export default function MonthlyTab() {
                   </Link>
 
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontSize: 14,
                       color: "#202225",
@@ -504,7 +504,7 @@ export default function MonthlyTab() {
                   </Link>
 
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontSize: 14,
                       color: "#202225",
@@ -515,7 +515,7 @@ export default function MonthlyTab() {
                   </Link>
 
                   <Link
-                    to="/"
+                    to=""
                     style={{
                       fontSize: 14,
                       color: "#202225",
