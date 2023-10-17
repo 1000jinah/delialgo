@@ -511,14 +511,14 @@ export default function WeeklyTab({ TabValue }) {
                   color: "#B3A5A1",
                   fontSize: 13,
                 }}
-                href="/"
+                href=""
               >
                 Insights
               </Link>
               <Link
                 underline="hover"
                 style={{ color: "#B3A5A1", fontSize: 13 }}
-                href="/material-ui/getting-started/installation/"
+                href="/insights/monthly"
               >
                 Global Monthly Commentary
               </Link>

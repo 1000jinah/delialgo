@@ -502,21 +502,21 @@ export default function OrdinaryTab() {
                   color: "#B3A5A1",
                   fontSize: 13,
                 }}
-                href="/"
+                href=""
               >
                 Our Portfolio
               </Link>
               <Link
                 underline="hover"
                 style={{ color: "#B3A5A1", fontSize: 13 }}
-                href="/material-ui/getting-started/installation/"
+                href=""
               >
                 Theme Machine
               </Link>
               <Link
                 underline="hover"
                 style={{ color: "#B3A5A1", fontSize: 13 }}
-                href="/material-ui/getting-started/installation/"
+                href=""
               >
                 ETF Finder
               </Link>
