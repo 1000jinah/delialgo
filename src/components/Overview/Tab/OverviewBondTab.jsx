@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Box, Typography, Tabs, Tab } from "@mui/material";
-import MachineBarChart from "components/Overview/Chart/OverviewBarChart";
 import MachineCtsBox from "components/Overview/Box/OverviewCtsBox";
 import EnhancedTable from "../Table/OverviewTable";
-import OverviewLineChart from "../Chart/OverviewChart";
-// import CompareChart from "components/Machine/MachineChart";
+import OverviewLineChart from "../Chart/OverviewLineChart";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -42,14 +40,40 @@ function a11yProps(index) {
 
 export default function OverviewBondTab() {
   const [value, setValue] = React.useState(0);
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [selectedColors, setSelectedColors] = useState([]);
+
+  const handleCheckboxClick = (selectedNames, selectedIndex) => {
+    setSelectedRows(selectedNames);
+
+    // selectedNames을 기반으로 selectedColors 업데이트
+    const newColors = selectedNames.map((name) => {
+      const index = selectedRows.findIndex((row) => row.name === name);
+      return selectedColor[index];
+    });
+    setSelectedColors(newColors);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  return (
-    // InvestGoal , QandA , WhatInvestment , TypeTitleBox , TypeCtsBox
+  // 특정 색상을 제외하고 보충 색상을 생성하는 함수
+  const selectedColor = [
+    "#FF5733",
+    "#00FF00",
+    "#0000FF",
+    "#FFD700",
+    "#8A2BE2",
+    "#FF5733",
+    "#00FF00",
+    "#0000FF",
+    "#FFD700",
+    "#8A2BE2",
+    "#FF5733",
+  ];
 
+  return (
     <Box sx={{ width: "100%" }}>
       <Box
         sx={{
@@ -154,13 +178,17 @@ export default function OverviewBondTab() {
       </Box>
 
       <CustomTabPanel value={value} index={0}>
-        <Box sx={{ py: 5,display:"flex"}}>
-          <Box>
-            <EnhancedTable/>
-          </Box>
-          <Box>
-            <OverviewLineChart/>
-          </Box>
+        <Box sx={{ py: 5, display: "flex" }}>
+          <EnhancedTable
+            onCheckboxClick={handleCheckboxClick}
+            selectedColor={selectedColor}
+          />
+
+          <OverviewLineChart
+            names={selectedRows}
+            onCheckboxClick={handleCheckboxClick}
+            selectedColor={selectedColor}
+          />
         </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}></CustomTabPanel>

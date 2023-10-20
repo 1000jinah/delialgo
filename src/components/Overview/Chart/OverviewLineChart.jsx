@@ -2,30 +2,48 @@ import React, { useState, useEffect } from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import axios from "axios";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import { Button, Divider } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
-const DarkLineChart = () => {
+const OverviewLineChart = ({ names, onCheckboxClick, selectedColor }) => {
   const [chartOptions, setChartOptions] = useState(null);
-  const [inputEnabled, setInputEnabled] = useState(false);
-  const enableInput = () => {
-    setInputEnabled((inputEnabled) => !inputEnabled);
+  const handleDelete = () => {
+    console.info("You clicked the delete icon.");
   };
 
-  // const enableInput = () => {
-  //   setInputEnabled((prevInputEnabled) => !prevInputEnabled);
-  //   setChartOptions((prevOptions) => {
-  //     const newOptions = { ...prevOptions };
-  //     newOptions.rangeSelector.inputEnabled = true;
-  //     return newOptions;
-  //   });
-  // };
   useEffect(() => {
     axios
       .get("https://demo-live-data.highcharts.com/aapl-c.json")
       .then((response) => {
         const data = response.data;
+        const newSeries = names.map((name, index) => {
+          const color = selectedColor[index]; // Use selected color or default
 
+          return {
+            name: name,
+            data:
+              data === null
+                ? null // Display a message when data is null
+                : data.map((point) => [point[0], point[1] * index]),
+            // data.map((point) => [point[0], point[1] * index + 1]),
+            tooltip: {
+              valueDecimals: 2,
+            },
+            color: color, // Use the color from the selectedColor prop
+            yAxis: 0,
+          };
+        });
+
+        const isMultipleOfThree = names.length % 3 === 0;
+        const extraMargin = isMultipleOfThree
+          ? 60
+          : names.length % 3 === 1
+          ? 50
+          : 40;
+        const extraHeight = isMultipleOfThree
+          ? 60
+          : names.length % 3 === 1
+          ? 50
+          : 40;
         setChartOptions({
           credits: { enabled: false },
           chart: {
@@ -33,7 +51,8 @@ const DarkLineChart = () => {
             backgroundColor: "#082a4d",
             borderColor: "#54697f",
             borderWidth: 1,
-            margin: [70, 20, 40, 45],
+            height: 370 + extraHeight * (names.length / 3),
+            margin: [100 + extraMargin * (names.length / 3), 20, 40, 45],
           },
           rangeSelector: {
             title: {
@@ -46,6 +65,7 @@ const DarkLineChart = () => {
               fill: "#082a4d",
               stroke: "#b3a5a1",
               "stroke-width": 1,
+
               r: 0,
               style: {
                 color: "#b3a5a1",
@@ -65,13 +85,13 @@ const DarkLineChart = () => {
               },
             },
             buttonSpacing: 1, // 버튼 간격을 0으로 설정
-            inputEnabled: inputEnabled,
+            inputEnabled: false,
             inputDateFormat: "%Y-%m-%d",
             inputEditDateFormat: "%Y-%m-%d",
             inputStyle: {
               color: "#b3a5a1",
             },
-            inputBoxBorderColor: "#b3a5a1",// "#54697f",
+            inputBoxBorderColor: "#b3a5a1", // "#54697f",
             inputBoxWidth: 120,
             inputBoxHeight: 18,
             inputDateParser: function (value) {
@@ -152,29 +172,13 @@ const DarkLineChart = () => {
           title: {
             enabled: false,
           },
+          credit: {
+            enabled: false,
+          },
           navigator: {
             enabled: false,
           },
-          series: [
-            {
-              name: "AAPL Stock Price",
-              data: data,
-              tooltip: {
-                valueDecimals: 2,
-              },
-              color: "#eed485",
-              yAxis: 0,
-            },
-            {
-              name: "AAPL Stock Price (Modified)",
-              data: data.map((point) => [point[0], point[1] * 2]),
-              tooltip: {
-                valueDecimals: 2,
-              },
-              color: "#27757b",
-              yAxis: 0,
-            },
-          ],
+          series: newSeries,
           xAxis: {
             type: "datetime",
             labels: {
@@ -221,7 +225,7 @@ const DarkLineChart = () => {
             symbolRadius: 0,
           },
           tooltip: {
-            shared: true,
+            shared: false,
             crosshairs: true,
             backgroundColor: "rgba(0, 0, 0, 0.75)",
             style: {
@@ -242,8 +246,7 @@ const DarkLineChart = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [inputEnabled]);
-
+  }, [names, selectedColor]);
   useEffect(() => {
     if (chartOptions) {
       Highcharts.stockChart("container", chartOptions);
@@ -267,7 +270,7 @@ const DarkLineChart = () => {
         rangeSelectorInput.style.transform = "translate(620px, 10px)";
       }
       if (rangeSelectorGroup) {
-        rangeSelectorGroup.style.transform = "translate(-60px, 25px)";
+        rangeSelectorGroup.style.transform = "translate(-70px, 25px)";
       }
       if (rangeSelectorButtonGroup) {
         rangeSelectorButtonGroup.style.display = "none";
@@ -283,45 +286,120 @@ const DarkLineChart = () => {
   return (
     <div style={{ position: "relative" }}>
       {/* 아이콘 추가하고 클릭할 때 마다 reload 되지 않도록 해줘 */}
-      <Divider
-        orientation="vertical"
-        sx={{
-          position: "absolute",
-          backgroundColor: "#b3a5a1",
-          height: 20,
-          zIndex: 3000,
-          top: 37,
-          left: 430,
-        }}
-      />
+
       <Button
         sx={{
-          fontSize: "0.75rem",
-          p: 0,
+          fontSize: "0.78rem",
+          py: 0.2,
+          px: 1.4,
           textTransform: "capitalize",
-          position: "absolute",
-          border: "none",
-          color: "#b3a5a1",
+          border: "0.5px solid #d6e8f0",
+          borderRadius: 4,
+          color: "#d6e8f0",
           backgroundColor: "#082a4d",
+          position: "absolute",
           zIndex: 3000,
-          top: 37,
-          left: 450,
-   
+          top: 31,
+          right: 20,
         }}
-        startIcon={
-          <CalendarTodayIcon sx={{ width: 15, height: 15, mb: 0.2 }} />
-        }
         id="enableInputButton"
-        onClick={enableInput}
+        onClick
       >
-        Date Range
+        Compare
       </Button>
+      {names.length === 0 && (
+        <Box
+          sx={{
+            position: "absolute",
+            zIndex: 3000,
+            top: "calc(30% - 20px)",
+            right: "calc(50% - 125px)",
+            textAlign: "center",
+            backgroundColor: "transparent",
+            color: "#d6e8f0",
+          }}
+        >
+          선택된 종목이 없습니다.
+          <br />
+          테이블에서 종목을 선택해주세요.
+        </Box>
+      )}
+
+      {/* Chart Label Boxes */}
+      <Box
+        sx={{
+          position: "absolute",
+          width: "calc(100% - 30px)",
+          // Remove overflowX property
+          // overflowX: "clip",
+
+          display: "grid", // Use grid instead of flex
+          gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", // Adjust the column size as needed
+          gap: "8px", // Adjust the gap between items as needed
+          zIndex: 3000,
+          top: 72,
+          left: 15,
+        }}
+      >
+        {names.map((name, index) => (
+          // Chart Label Box
+          <Box
+            key={index}
+            sx={{
+              backgroundColor: "rgba(84, 105, 127,  0.33)",
+              color: "#b3a5a1",
+              position: "relative",
+              width: "auto",
+              flexWrap: "wrap",
+              whiteSpace: "wrap",
+              alignItems: "center",
+              display: "flex",
+            }}
+          >
+            <Box
+              sx={{
+                position: "absolute",
+
+                left: 0,
+                top: 0,
+                width: 2,
+                height: "100%",
+                backgroundColor: selectedColor[index],
+                // backgroundColor:
+                //   index % 3 === 0
+                //     ? "#27757b"
+                //     : index % 3 === 1
+                //     ? "#eed485"
+                //     : "#fd5b26",
+              }}
+            ></Box>
+            <Typography sx={{ px: 1, mr: 2, fontSize: 12 }}>{name}</Typography>
+            <Button
+              sx={{
+                position: "absolute",
+
+                right: 0,
+                top: 0,
+                color: "#b3a5a1",
+                px: 0.5,
+                py: 0,
+                minWidth: 20,
+              }}
+              onDelete={() => handleDelete(index)}
+            >
+              ×
+            </Button>
+          </Box>
+        ))}
+      </Box>
+
       <div
         id="container"
         style={{
           backgroundColor: "#082a4d",
           borderColor: "#54697f",
           borderWidth: 1,
+          position: "relative",
         }}
       >
         <HighchartsReact highcharts={Highcharts} options={chartOptions} />
@@ -330,4 +408,4 @@ const DarkLineChart = () => {
   );
 };
 
-export default DarkLineChart;
+export default OverviewLineChart;

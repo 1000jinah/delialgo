@@ -4,6 +4,7 @@ import Highcharts from "highcharts";
 const TrophyChart = () => {
   useEffect(() => {
     Highcharts.chart("container", {
+      credits: { enabled: false },
       chart: {
         backgroundColor: "#FDEAE4",
         type: "column",

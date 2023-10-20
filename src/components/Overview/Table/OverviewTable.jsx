@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -14,8 +14,6 @@ import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
 import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
@@ -35,10 +33,26 @@ function createData(name, risk, year1, year3, year5, ytd, ratio, fee) {
     fee,
   };
 }
-
+const rowName = [
+  "S&P 500",
+  "Semiconductor",
+  "iBonds Dec 2024 Term Corporate",
+  "Vanguard Short-Term Corporate Bond Index Fund",
+  "MBS",
+  "Select Dividend",
+  "WisdomTree U.S. Quality Dividend Growth Fund",
+  "First Trust Senior Loan Fund",
+  "FTSE RAFI US 1500 Small-Mid",
+  "7-10 Year Treasury Bond",
+  "Russell 1000 Index",
+  "Russell 1000 Index",
+  "Russell 1000 Index",
+  "Russell 1000 Index",
+  "Russell 1000 Index",
+];
 const rows = [
   createData(
-    "iShares Core S&P 500 ETF",
+    `iShares Core ${rowName[0]} ETF`, // S&P 500
     3,
     2.86,
     7.25,
@@ -48,7 +62,7 @@ const rows = [
     2.14
   ),
   createData(
-    "iShares Semiconductor ETF",
+    `iShares ${rowName[1]} ETF`, // Semiconductor
     3,
     2.86,
     7.25,
@@ -58,7 +72,7 @@ const rows = [
     2.14
   ),
   createData(
-    "iShares iBonds Dec 2024 Term Corporate ETF",
+    `iShares ${rowName[2]} ETF`, // iBonds Dec 2024 Term Corporate
     3,
     2.86,
     7.25,
@@ -68,18 +82,7 @@ const rows = [
     2.14
   ),
   createData(
-    "Vanguard Short-Term Corporate Bond Index Fund",
-    3,
-    2.86,
-    7.25,
-    10.96,
-    10.3,
-    0.03,
-    2.14
-  ),
-  createData("iShares MBS ETF", 3, 2.86, 7.25, 10.96, 10.3, 0.03, 2.14),
-  createData(
-    "iShares Select Dividend ETF",
+    `${rowName[3]}`, // Vanguard Short-Term Corporate Bond Index Fund
     3,
     2.86,
     7.25,
@@ -89,7 +92,17 @@ const rows = [
     2.14
   ),
   createData(
-    "WisdomTree U.S. Quality Dividend Growth Fund",
+    `iShares ${rowName[4]} ETF`,
+    3,
+    2.86,
+    7.25,
+    10.96,
+    10.3,
+    0.03,
+    2.14
+  ), // MBS
+  createData(
+    `iShares ${rowName[5]} ETF`, // Select Dividend
     3,
     2.86,
     7.25,
@@ -99,7 +112,7 @@ const rows = [
     2.14
   ),
   createData(
-    "First Trust Senior Loan Fund",
+    `${rowName[6]}`, // WisdomTree U.S. Quality Dividend Growth Fund
     3,
     2.86,
     7.25,
@@ -109,17 +122,7 @@ const rows = [
     2.14
   ),
   createData(
-    "Invesco FTSE RAFI US 1500 Small-Mid ETF",
-    3,
-    2.86,
-    7.25,
-    10.96,
-    10.3,
-    10.3,
-    2.14
-  ),
-  createData(
-    "iShares 7-10 Year Treasury Bond ETF",
+    `${rowName[7]}`, // First Trust Senior Loan Fund
     3,
     2.86,
     7.25,
@@ -129,7 +132,17 @@ const rows = [
     2.14
   ),
   createData(
-    "Vanguard Russell 1000 Index Fund",
+    `Invesco ${rowName[8]} ETF`, // FTSE RAFI US 1500 Small-Mid
+    3,
+    2.86,
+    7.25,
+    10.96,
+    10.3,
+    10.3,
+    2.14
+  ),
+  createData(
+    `iShares ${rowName[9]} ETF`, // 7-10 Year Treasury Bond
     3,
     2.86,
     7.25,
@@ -139,37 +152,7 @@ const rows = [
     2.14
   ),
   createData(
-    "Vanguard Russell 1000 Index Fund",
-    3,
-    2.86,
-    7.25,
-    10.96,
-    10.3,
-    0.03,
-    2.14
-  ),
-  createData(
-    "Vanguard Russell 1000 Index Fund",
-    3,
-    2.86,
-    7.25,
-    10.96,
-    10.3,
-    0.03,
-    2.14
-  ),
-  createData(
-    "Vanguard Russell 1000 Index Fund",
-    3,
-    2.86,
-    7.25,
-    10.96,
-    10.3,
-    0.03,
-    2.14
-  ),
-  createData(
-    "Vanguard Russell 1000 Index Fund",
+    `Vanguard ${rowName[10]} Fund`, // Russell 1000 Index
     3,
     2.86,
     7.25,
@@ -221,7 +204,7 @@ const headCells = [
   },
   {
     id: "risk",
-    numeric: true,
+    numeric: null,
     disablePadding: false,
     label: "Risk Level",
   },
@@ -285,6 +268,7 @@ function EnhancedTableHead(props) {
               width: 18,
               height: 18,
               borderRadius: 0,
+              mr: 3,
               position: "relative",
               display: "flex",
               alignItems: "center",
@@ -321,10 +305,16 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
+            align={
+              headCell.numeric === true
+                ? "right"
+                : headCell.numeric === false
+                ? "left"
+                : "center"
+            }
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
-            sx={{ fontSize: 12, color: "#b3a5a1" }}
+            sx={{ fontSize: 12, color: "#b3a5a1", whiteSpace: "nowrap" }}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -412,13 +402,13 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable() {
-  const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("calories");
+export default function EnhancedTable({ onCheckboxClick, selectedColor }) {
+  const [order, setOrder] = useState("asc");
+  const [orderBy, setOrderBy] = useState("calories");
   const [selected, setSelected] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(15);
+  const [page, setPage] = useState(0);
+  const [dense, setDense] = useState(false);
+  const [rowsPerPage, setRowsPerPage] = useState(15);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -428,11 +418,13 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = rows.map((n) => n.name);
+      const newSelected = rows.map((row) => row.name);
       setSelected(newSelected);
-      return;
+      onCheckboxClick(newSelected);
+    } else {
+      setSelected([]);
+      onCheckboxClick([]);
     }
-    setSelected([]);
   };
 
   const handleClick = (event, name) => {
@@ -453,7 +445,27 @@ export default function EnhancedTable() {
     }
 
     setSelected(newSelected);
+
+    // Call the parent component's callback function
+    onCheckboxClick(newSelected, selectedIndex);
   };
+
+  // const selectedNames = [];
+  // const selectedColors = [];
+  //   // 선택된 이름과 색상을 배열에 추가
+  //   selectedNames.length = 0; // 기존 데이터 초기화
+  //   selectedColors.length = 0; // 기존 데이터 초기화
+
+  //   newSelected.forEach((selectedName) => {
+  //     const index = rows.findIndex((row) => row.name === selectedName);
+  //     if (index !== -1) {
+  //       selectedNames.push(selectedName);
+  //       selectedColors.push(selectedColor[index]);
+  //     }
+  //   });
+
+  //   console.log("Selected Names:", selectedNames);
+  //   console.log("Selected Colors:", selectedColors);
 
   const handleChangeDense = (event) => {
     setDense(event.target.checked);
@@ -490,12 +502,14 @@ export default function EnhancedTable() {
             onSelectAllClick={handleSelectAllClick}
             onRequestSort={handleRequestSort}
             rowCount={rows.length}
+            selectedColor={selectedColor} // 여기에 selectedColor prop 추가
           />
           <TableBody>
             {visibleRows.map((row, index) => {
               const isItemSelected = isSelected(row.name);
               const labelId = `enhanced-table-checkbox-${index}`;
-
+              const color = selectedColor[index]; // Use selected color or default
+              const riskCount = Math.min(row.risk, 5); // risk 값이 5보다 클 경우 최대 5로 제한
               return (
                 <TableRow
                   hover
@@ -521,6 +535,7 @@ export default function EnhancedTable() {
                       style={{
                         width: 18,
                         height: 18,
+                        mr: 3,
                         display: "flex",
                         alignItems: "center",
                         textAlign: "center",
@@ -532,7 +547,7 @@ export default function EnhancedTable() {
                       {isItemSelected ? (
                         <Box
                           sx={{
-                            backgroundColor: "#fff",
+                            backgroundColor: color, // Check if selectedColor is defined
                             width: 11,
                             height: 11,
                             position: "absolute",
@@ -554,11 +569,23 @@ export default function EnhancedTable() {
                   >
                     {row.name}
                   </TableCell>
-                  <TableCell
-                    sx={{ fontSize: 12, color: "#202225" }}
-                    align="right"
-                  >
-                    {row.risk}
+                  <TableCell sx={{ fontSize: 12, color: "#202225" }}>
+                    {/* {row.risk} */}
+                    <Box sx={{ display: "flex", justifyContent: "center" }}>
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Box
+                          key={i}
+                          sx={{
+                            width: 12,
+                            height: 12,
+                            background:
+                              i < Math.min(row.risk, 5) ? "#fd5b26" : "#fde0d7", // 마지막 원소까지는 흰색, 나머지는 주황색
+                            borderRadius: "50%",
+                            marginLeft: i > 0 ? 0.5 : 0, // Add margin between circles
+                          }}
+                        />
+                      ))}
+                    </Box>
                   </TableCell>
                   <TableCell
                     sx={{ fontSize: 12, color: "#202225" }}

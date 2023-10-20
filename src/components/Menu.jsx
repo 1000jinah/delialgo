@@ -1,56 +1,62 @@
-import React from 'react';
-import { Box, Typography, Link, Button } from '@mui/material';
-
-const TopMenu = ({hoveredTabIndex, handleTabHover, handleTabLeave}) => {
-
-
+import React from "react";
+import { Box, Typography, Button } from "@mui/material";
+import { Link } from "react-router-dom";
+const TopMenu = ({ hoveredTabIndex, handleTabHover, handleTabLeave }) => {
   return (
-    <Box sx={{ borderTop: 1, borderColor: 'divider' }}>
+    <Box
+      sx={{
+        backgroundColor: "#FDEAE4",
+        borderTop: 1,
+        borderColor: "divider",
+      }}
+    >
       <Box
         sx={{
-          p: '10px 100px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          position: 'relative',
+          p: "12px 100px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          position: "relative",
         }}
       >
         <Box
           sx={{
-            position: 'absolute',
-            width: hoveredTabIndex === 0
-              ? 105
-              : hoveredTabIndex === 1
-              ? 80
-              : hoveredTabIndex === 2
-              ? 70
-              : hoveredTabIndex === 3
-              ? 90
-              : hoveredTabIndex === 4
-              ? 60
-              : 'auto',
-            borderBottom: hoveredTabIndex === null ? 'none' : '2px solid',
-            borderBottomColor: hoveredTabIndex === null ? 'none' : '#FD5B26',
-            bottom: -3,
-            left: hoveredTabIndex === 0
-              ? 95
-              : hoveredTabIndex === 1
-              ? 227
-              : hoveredTabIndex === 2
-              ? 330
-              : hoveredTabIndex === 3
-              ? 428
-              : hoveredTabIndex === 4
-              ? 547
-              : 0,
+            position: "absolute",
+            width:
+              hoveredTabIndex === 0
+                ? 105
+                : hoveredTabIndex === 1
+                ? 80
+                : hoveredTabIndex === 2
+                ? 70
+                : hoveredTabIndex === 3
+                ? 90
+                : hoveredTabIndex === 4
+                ? 60
+                : "auto",
+            borderBottom: hoveredTabIndex === null ? "none" : "2px solid",
+            borderBottomColor: hoveredTabIndex === null ? "none" : "#FD5B26",
+            bottom: 1,
+            left:
+              hoveredTabIndex === 0
+                ? 95
+                : hoveredTabIndex === 1
+                ? 227
+                : hoveredTabIndex === 2
+                ? 330
+                : hoveredTabIndex === 3
+                ? 428
+                : hoveredTabIndex === 4
+                ? 547
+                : 0,
           }}
         ></Box>
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: "flex" }}>
           <Typography
             sx={{
-              textTransform: 'capitalize',
+              textTransform: "capitalize",
               mr: 6,
-              color: hoveredTabIndex === 0 ? '#FD5B26' : '#202225',
+              color: hoveredTabIndex === 0 ? "#FD5B26" : "#202225",
               fontSize: 16,
               fontWeight: 400,
             }}
@@ -60,9 +66,9 @@ const TopMenu = ({hoveredTabIndex, handleTabHover, handleTabLeave}) => {
           </Typography>
           <Typography
             sx={{
-              textTransform: 'capitalize',
+              textTransform: "capitalize",
               mr: 6,
-              color: hoveredTabIndex === 1 ? '#FD5B26' : '#202225',
+              color: hoveredTabIndex === 1 ? "#FD5B26" : "#202225",
               fontSize: 16,
               fontWeight: 400,
             }}
@@ -72,9 +78,9 @@ const TopMenu = ({hoveredTabIndex, handleTabHover, handleTabLeave}) => {
           </Typography>
           <Typography
             sx={{
-              textTransform: 'capitalize',
+              textTransform: "capitalize",
               mr: 6,
-              color: hoveredTabIndex === 2 ? '#FD5B26' : '#202225',
+              color: hoveredTabIndex === 2 ? "#FD5B26" : "#202225",
               fontSize: 16,
               fontWeight: 400,
             }}
@@ -85,9 +91,9 @@ const TopMenu = ({hoveredTabIndex, handleTabHover, handleTabLeave}) => {
           </Typography>
           <Typography
             sx={{
-              textTransform: 'capitalize',
+              textTransform: "capitalize",
               mr: 6,
-              color: hoveredTabIndex === 3 ? '#FD5B26' : '#202225',
+              color: hoveredTabIndex === 3 ? "#FD5B26" : "#202225",
               fontSize: 16,
               fontWeight: 400,
             }}
@@ -97,8 +103,8 @@ const TopMenu = ({hoveredTabIndex, handleTabHover, handleTabLeave}) => {
           </Typography>
           <Typography
             sx={{
-              textTransform: 'capitalize',
-              color: hoveredTabIndex === 4 ? '#FD5B26' : '#202225',
+              textTransform: "capitalize",
+              color: hoveredTabIndex === 4 ? "#FD5B26" : "#202225",
               fontSize: 16,
               fontWeight: 400,
             }}
@@ -111,11 +117,12 @@ const TopMenu = ({hoveredTabIndex, handleTabHover, handleTabLeave}) => {
         <Box
           onMouseLeave={handleTabLeave}
           sx={{
-            backgroundColor: '#FDEAE4',
+            backgroundColor: "#FDEAE4",
             borderTop: 1,
-            borderColor: 'divider',
-            width: '100%',
-            position: 'absolute',
+
+            borderColor: "divider",
+            width: "100%",
+            position: "absolute",
             zIndex: 20000,
             top: 48,
             left: 0,
@@ -124,71 +131,364 @@ const TopMenu = ({hoveredTabIndex, handleTabHover, handleTabLeave}) => {
           {hoveredTabIndex === 0 && (
             <Box
               sx={{
-                p: hoveredTabIndex === null ? 0 : '20px 120px',
-                display: 'flex',
+                p: hoveredTabIndex === null ? 0 : "20px 120px",
+                display: "flex",
                 minHeight: 400,
                 pt: 5,
-                alignItems: 'flex-start',
+                alignItems: "flex-start",
               }}
             >
-              <Box sx={{ display: 'flex', flexDirection: 'column', mr: 12 }}>
+              <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
                 <Link
-                  to="/"
+                  to=""
                   style={{
-                    fontWeight: 'bold',
+                    fontWeight: "bold",
                     fontSize: 18,
-                    color: '#202225',
+                    color: "#202225",
                     marginBottom: 45,
                   }}
                 >
                   Our Portfolio
                 </Link>
                 <Link
-                  to="/"
-                  style={{ fontSize: 14, color: '#202225', marginBottom: 25 }}
+                  to="/overview"
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
                 >
                   View All Portfolio
                 </Link>
-                {/* 나머지 Link들도 같은 형식으로 작성 */}
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  AI Portfolio
+                </Link>
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Theme Portfolio
+                </Link>
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Fundamental Portfolio
+                </Link>
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Variable Insurance Portfolio
+                </Link>
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Compare Portfolio
+                </Link>
               </Box>
-              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Link
+                  to=""
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: "#202225",
+                    marginBottom: 45,
+                  }}
+                >
+                  Explore by Theme
+                </Link>
+
                 <Link
                   to="/machine"
-                  style={{ fontSize: 14, color: '#202225' }}
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                  }}
                 >
                   Theme Machine
                 </Link>
               </Box>
             </Box>
           )}
-          {/* 나머지 탭들도 같은 형식으로 작성 */}
+          {hoveredTabIndex === 1 && (
+            <Box
+              sx={{
+                p: hoveredTabIndex === null ? 0 : "20px 120px",
+                display: "flex",
+                minHeight: 320,
+                pt: 5,
+                alignItems: "flex-start",
+              }}
+            >
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Link
+                  to=""
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: "#202225",
+                    marginBottom: 45,
+                  }}
+                >
+                  Insights
+                </Link>
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  All Insight
+                </Link>
+                <Link
+                  to="/insights/weekly"
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Weekly Commentary
+                </Link>
+                <Link
+                  to="/insights/monthly"
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Monthly Commentary
+                </Link>
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Market Risk Monitor
+                </Link>
+              </Box>
+            </Box>
+          )}
+          {hoveredTabIndex === 2 && (
+            <Box
+              sx={{
+                p: hoveredTabIndex === null ? 0 : "20px 120px",
+                display: "flex",
+                minHeight: 270,
+                pt: 5,
+                alignItems: "flex-start",
+              }}
+            >
+              <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
+                <Link
+                  to=""
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: "#202225",
+                    marginBottom: 45,
+                  }}
+                >
+                  Plan
+                </Link>
+
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                  }}
+                >
+                  BETI
+                </Link>
+              </Box>
+              <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
+                <Link
+                  to=""
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: "#202225",
+                  }}
+                >
+                  Do
+                </Link>
+              </Box>
+              <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
+                <Link
+                  to=""
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: "#202225",
+                  }}
+                >
+                  See
+                </Link>
+              </Box>
+            </Box>
+          )}
+          {hoveredTabIndex === 3 && (
+            <Box
+              sx={{
+                p: hoveredTabIndex === null ? 0 : "20px 120px",
+                display: "flex",
+                minHeight: 270,
+                pt: 5,
+                alignItems: "flex-start",
+              }}
+            >
+              <Box sx={{ display: "flex", flexDirection: "column", mr: 12 }}>
+                <Link
+                  to=""
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: "#202225",
+                    marginBottom: 45,
+                  }}
+                >
+                  Content Series
+                </Link>
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                  }}
+                ></Link>
+              </Box>
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Link
+                  to=""
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: "#202225",
+                  }}
+                >
+                  Product Series
+                </Link>
+              </Box>
+            </Box>
+          )}
+          {hoveredTabIndex === 4 && (
+            <Box
+              sx={{
+                p: hoveredTabIndex === null ? 0 : "20px 120px",
+                display: "flex",
+                minHeight: 300,
+                pt: 5,
+                alignItems: "flex-start",
+              }}
+            >
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Link
+                  to=""
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: "#202225",
+                    marginBottom: 40,
+                  }}
+                >
+                  FEATURED
+                </Link>
+
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Goal Base Caculator
+                </Link>
+
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  Portfolio Builder
+                </Link>
+
+                <Link
+                  to=""
+                  style={{
+                    fontSize: 14,
+                    color: "#202225",
+                    marginBottom: 25,
+                  }}
+                >
+                  ETF Screener
+                </Link>
+              </Box>
+            </Box>
+          )}
         </Box>
         {/* Button - Join Us, Sign In */}
         <Box>
           <Button
             sx={{
-              textTransform: 'capitalize',
-              border: 'none',
+              textTransform: "capitalize",
+              border: "none",
               fontSize: 13,
               p: 0,
-              backgroundColor: '#FDEAE4',
-              ':hover': {
-                backgroundColor: 'transparent',
+              backgroundColor: "#FDEAE4",
+              ":hover": {
+                backgroundColor: "transparent",
               },
-              color: '#360c5e',
+              color: "#360c5e",
             }}
           >
             Join us
           </Button>
           <Button
             sx={{
-              textTransform: 'capitalize',
-              color: '#fdeae4',
+              textTransform: "capitalize",
+              color: "#fdeae4",
               fontSize: 13,
               p: 0,
-              backgroundColor: '#360c5e',
-              ':hover': {
-                backgroundColor: '#360c5e',
+              backgroundColor: "#360c5e",
+              ":hover": {
+                backgroundColor: "#360c5e",
               },
             }}
           >
